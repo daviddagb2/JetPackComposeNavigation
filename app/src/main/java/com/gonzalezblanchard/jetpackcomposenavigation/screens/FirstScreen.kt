@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import com.gonzalezblanchard.jetpackcomposenavigation.navigations.AppScreens
 
 @Composable
 fun FirstScreen(navController: NavController) {
@@ -29,7 +30,9 @@ fun BodyContent(navController: NavController){
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "Hola navegación")
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = {
+            navController.navigate(route = AppScreens.SecondScreen.route)
+        }) {
             Text(text = "Navega")
         }
     }

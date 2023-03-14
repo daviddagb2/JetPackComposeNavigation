@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import com.gonzalezblanchard.jetpackcomposenavigation.navigations.AppScreens
 
 @Composable
 fun SecondScreen(navController: NavController) {
@@ -28,7 +29,9 @@ fun SecondBodyContent(navController: NavController){
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "Estas en la segunda pantalla")
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = {
+            navController.navigate(route = AppScreens.FirstScreen.route)
+        }) {
             Text(text = "Regresar a la primera")
         }
     }
