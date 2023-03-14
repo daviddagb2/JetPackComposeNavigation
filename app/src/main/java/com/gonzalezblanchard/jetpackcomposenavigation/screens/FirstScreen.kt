@@ -1,20 +1,25 @@
 package com.gonzalezblanchard.jetpackcomposenavigation.screens
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import com.gonzalezblanchard.jetpackcomposenavigation.navigations.AppScreens
 
 @Composable
 fun FirstScreen(navController: NavController) {
-    Scaffold(/* ... */) { contentPadding ->
+    Scaffold(
+        topBar = {
+            TopAppBar() {
+                Text(text = "First Screen")
+            }
+        }
+    ) { contentPadding ->
         // Screen content
         Box(modifier = Modifier.padding(contentPadding)) {
             BodyContent(navController)
@@ -31,7 +36,7 @@ fun BodyContent(navController: NavController){
     ) {
         Text(text = "Hola navegación")
         Button(onClick = {
-            navController.navigate(route = AppScreens.SecondScreen.route)
+            navController.navigate(route = AppScreens.SecondScreen.route + "/Este es un parametro")
         }) {
             Text(text = "Navega")
         }
